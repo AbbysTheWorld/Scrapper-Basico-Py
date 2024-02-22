@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraper</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head>
+<body class="bg-slate-950 text-white selection:bg-fuchsia-900">
+    <div class="h-screen w-full flex flex-col justify-center items-center">
+        <div class="w-3/5 h-1/2 bg-gradient-to-t to-indigo-600 to-80% from-orange-500 from-10% rounded-md flex flex-col items-center">
+            <div class="w-full mb-3"><h1 class="text-center text-2xl font-bold">Scraper</h1></div>
+            <form class="flex w-full h-full flex-col items-center">
+                <div class="h-full w-3/5 flex flex-col justify-around items-center">
+                    <select class="bg-violet-950 p-1 rounded-md" name="select_categories" id="select_categories">
+                        {% for i in range(Len) %}
+                            <option class="text-center hover:bg-slate-900" value={{categories.name_complete[i]}}>{{categories.name_clean[i]}}</option>
+                        {% endfor %}
+                    </select>
+
+                    <button class="backdrop-opacity-10 opacity-50 w-1/2 bg-white text-zinc-800 p-2 rounded-md hover:opacity-100 hover:text-black hover:font-bold duration-100">Submit</button>
+                    {% if response %}
+                        <p class="w-full bg-green-500 text-green-900 p-1 rounded-md font-bold text-center">{{response}}</p>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
